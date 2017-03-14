@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -19,21 +20,21 @@ import java.util.ArrayList;
 public class ListAdapter extends BaseAdapter {
 
     Context context;
-    ArrayList<String> arrayList;
+    ArrayList<Penguins> penguinList;
 
-    public ListAdapter(Context context, ArrayList<String> arrayList) {
+    public ListAdapter(Context context, ArrayList<Penguins> penguinList) {
         this.context = context;
-        this.arrayList = arrayList;
+        this.penguinList = penguinList;
     }
 
     @Override
     public int getCount() {
-        return arrayList.size();
+        return penguinList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return arrayList.get(position);
+        return penguinList.get(position);
     }
 
     @Override
@@ -42,17 +43,28 @@ public class ListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             LayoutInflater mInflater = (LayoutInflater)
                     context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
             convertView = mInflater.inflate(R.layout.list_fill, null);
         }
         TextView textView = (TextView)convertView.findViewById(R.id.tmain_list_fill);
-        CheckBox checkBox = (CheckBox) convertView.findViewById(R.id.cbmain_list_fill);
+        final CheckBox checkBox = (CheckBox)convertView.findViewById(R.id.cbmain_list_fill);
 
+        textView.setText(penguinList.get(position).getName());
+        checkBox.setChecked(penguinList.get(position).isCheck());
 
-        textView.setText(arrayList.get(position));
+        checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(checkBox.isChecked()==true){
+                    DataManager.getInstance().setCheckPenguin(position,true);
+                }else if(checkBox.isChecked()==false){
+                    DataManager.getInstance().setCheckPenguin(position,false);
+                }
+            }
+        });
 
         return convertView;
     }

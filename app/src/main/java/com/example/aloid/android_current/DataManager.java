@@ -1,6 +1,5 @@
 package com.example.aloid.android_current;
 
-import android.widget.CheckBox;
 
 import java.util.ArrayList;
 
@@ -10,19 +9,7 @@ import java.util.ArrayList;
 
 public class DataManager {
 
-    private ArrayList<String> nameList;
-
-    private ArrayList<String> utils(){
-        nameList.add("Petja");
-        nameList.add("Vasja");
-        nameList.add("Pupkin");
-        nameList.add("Vasichkin");
-        nameList.add("Shlupkin");
-        nameList.add("Kepkin");
-
-
-        return nameList;
-    }
+    private ArrayList<Penguins> penguinData;
 
     private static DataManager instance;
 
@@ -34,20 +21,39 @@ public class DataManager {
     }
 
     public DataManager() {
-        if (nameList==null){
-            nameList = new ArrayList<>();
-            nameList = utils();
+        if (penguinData == null) {
+            penguinData = new ArrayList<>();
+            penguinData = Utils.fillPenguins();
         }
     }
 
-
-    public ArrayList<String> getNames() {
-        return nameList;
+    public ArrayList<Penguins> getPenguins() {
+        return penguinData;
     }
 
-    public void setName(String name){
-        nameList.add(name);
+    public void setPenguin(String name) {
+        penguinData.add(new Penguins(name));
     }
 
+    public void setCheckPenguin(int i,boolean key){
+        penguinData.get(i).setCheck(key);
+    }
 
+    public void delPenguin() {
+        for(int i=penguinData.size()-1;i>=0;i--){
+            if(penguinData.get(i).isCheck()==true){
+                penguinData.remove(penguinData.get(i));
+            }
+        }
+    }
+
+    public int findChecked(){
+        int count=0;
+        for(int i=0;i<penguinData.size();i++){
+            if(penguinData.get(i).isCheck()==true)
+                count++;
+        }
+        return count;
+    }
+    
 }
