@@ -47,13 +47,4 @@ public class DataManager {
         }
     }
 
-    public int findChecked(){
-        int count=0;
-        for(int i=0;i<penguinData.size();i++){
-            if(penguinData.get(i).isCheck()==true)
-                count++;
-        }
-        return count;
-    }
-    
 }
