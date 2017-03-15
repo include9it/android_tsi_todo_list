@@ -4,7 +4,8 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="6">
+    android:weightSum="6"
+    android:id="@+id/list_fill_L">
     <TextView
         android:layout_width="@dimen/zero_depend"
         android:layout_height="match_parent"
@@ -14,5 +15,6 @@
         android:layout_width="@dimen/zero_depend"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:id="@+id/cbmain_list_fill" />
+        android:id="@+id/cbmain_list_fill"
+        android:focusable="false"/>
 </LinearLayout>

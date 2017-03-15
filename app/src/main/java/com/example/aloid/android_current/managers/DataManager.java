@@ -1,5 +1,8 @@
-package com.example.aloid.android_current;
+package com.example.aloid.android_current.managers;
 
+
+import com.example.aloid.android_current.models.Penguins;
+import com.example.aloid.android_current.Utils;
 
 import java.util.ArrayList;
 
@@ -45,6 +48,15 @@ public class DataManager {
                 penguinData.remove(penguinData.get(i));
             }
         }
+    }
+
+    public void delDescription(int position){
+        if(penguinData.get(position).getDescription()!=null)
+        penguinData.get(position).setDescription(null);
+    }
+
+    public void changeDescription(int position, String note){
+        penguinData.get(position).setDescription(note);
     }
 
 }

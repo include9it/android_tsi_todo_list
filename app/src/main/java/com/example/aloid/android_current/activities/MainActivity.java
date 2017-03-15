@@ -1,13 +1,20 @@
-package com.example.aloid.android_current;
+package com.example.aloid.android_current.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.aloid.android_current.fragments.MainFragment;
+import com.example.aloid.android_current.managers.DataManager;
+import com.example.aloid.android_current.adapters.ListAdapter;
+import com.example.aloid.android_current.R;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
 
     EditText editText;
     ListView listView;
@@ -24,12 +31,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttondel = (Button)findViewById(R.id.main_bdel);
         editText = (EditText)findViewById(R.id.main_itext);
 
-        listAdapter = new ListAdapter(this,DataManager.getInstance().getPenguins());
+        listAdapter = new ListAdapter(this, DataManager.getInstance().getPenguins());
         listView.setAdapter(listAdapter);
+        listView.setOnItemClickListener(this);
 
         button.setOnClickListener(this);
         buttondel.setOnClickListener(this);
-
 
     }
 
@@ -53,5 +60,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void refreshList(){
         listAdapter.notifyDataSetChanged();
         listView.refreshDrawableState();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(MainActivity.this,MainFragment.class);
+                intent.putExtra("Position",position);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
     }
 }

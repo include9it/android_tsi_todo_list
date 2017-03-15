@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.aloid.android_current.MainActivity"
+    tools:context="com.example.aloid.android_current.activities.MainActivity"
     android:orientation="vertical"
     android:weightSum="15">
 
@@ -30,7 +30,9 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/zero_depend"
     android:id="@+id/main_list"
-    android:layout_weight="12">
+    android:layout_weight="12"
+    android:scrollingCache="true"
+    android:overScrollMode="never">
 </ListView>
     <Button
         android:layout_width="match_parent"

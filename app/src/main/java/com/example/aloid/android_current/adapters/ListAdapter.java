@@ -1,4 +1,4 @@
-package com.example.aloid.android_current;
+package com.example.aloid.android_current.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -9,6 +9,10 @@ import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+
+import com.example.aloid.android_current.managers.DataManager;
+import com.example.aloid.android_current.models.Penguins;
+import com.example.aloid.android_current.R;
 
 import java.util.ArrayList;
 
