@@ -12,6 +12,8 @@ import java.util.ArrayList;
 
 public class DataManager {
 
+    private float penguinSize;
+
     private ArrayList<Penguins> penguinData;
 
     private static DataManager instance;
@@ -27,7 +29,9 @@ public class DataManager {
         if (penguinData == null) {
             penguinData = new ArrayList<>();
             penguinData = Utils.fillPenguins();
+            penguinSize = penguinData.size();
         }
+        dataTools();
     }
 
     public ArrayList<Penguins> getPenguins() {
@@ -59,4 +63,10 @@ public class DataManager {
         penguinData.get(position).setDescription(note);
     }
 
+    public void dataTools(){
+        if(penguinSize < penguinData.size() || penguinSize > penguinData.size()){
+            
+        }
+        penguinSize = penguinData.size();
+    }
 }

@@ -1,6 +1,8 @@
 package com.example.aloid.android_current;
 
 
+
+
 import com.example.aloid.android_current.models.Penguins;
 
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
  */
 
 public class Utils {
+
     public static ArrayList<Penguins>fillPenguins(){
         Penguins peng1 = new Penguins("Vasja");
         Penguins peng2 = new Penguins("Petja");
@@ -30,4 +33,5 @@ public class Utils {
 
         return pengList;
     }
+
 }
