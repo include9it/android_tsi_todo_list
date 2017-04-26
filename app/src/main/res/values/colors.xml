@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="colorYellowBackground">#ffeb3b</color>
+    <color name="colorOrangeButtons">#f9a825</color>
+    <color name="colorDeepOraDel">#ff3d00</color>
+    <color name="colorOpacity30">#2121214D</color>
+    <color name="colorOpacity50">#21212180</color>
 </resources>

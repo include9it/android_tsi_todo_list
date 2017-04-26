@@ -1,25 +1,36 @@
 package com.example.aloid.android_current.activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.aloid.android_current.fragments.MainFragment;
 import com.example.aloid.android_current.managers.DataManager;
 import com.example.aloid.android_current.adapters.ListAdapter;
 import com.example.aloid.android_current.R;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener {
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemClickListener{
 
     EditText editText;
     ListView listView;
     ListAdapter listAdapter;
     Button button, buttondel;
+
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (id){
             case R.id.main_badd:
                 DataManager.getInstance().setPenguin(editText.getText().toString());
-                editText.setText("");
+
+                editText.setText(null);
+
                 refreshList();
                 break;
             case R.id.main_bdel:
@@ -69,4 +82,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
     }
+
 }

@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="10">
+    android:weightSum="10"
+    android:background="@color/colorYellowBackground">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,7 +13,8 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/fragment_description_text"/>
+            android:id="@+id/fragment_description_text"
+            android:background="@color/colorOpacity50"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,13 +29,15 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:text="share"
-            android:id="@+id/fragment_description_share"/>
+            android:id="@+id/fragment_description_share"
+            android:background="@color/colorOrangeButtons"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
             android:text="delete"
-            android:id="@+id/fragment_description_delete"/>
+            android:id="@+id/fragment_description_delete"
+            android:background="@color/colorDeepOraDel"/>
     </LinearLayout>
 </LinearLayout>

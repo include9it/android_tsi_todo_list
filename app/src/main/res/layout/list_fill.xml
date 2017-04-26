@@ -4,17 +4,26 @@
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="6"
     android:id="@+id/list_fill_L">
-    <TextView
-        android:layout_width="@dimen/zero_depend"
+    <!--Без второго layout margin тупит-->
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/tmain_list_fill"
-        android:layout_weight="5" />
-    <CheckBox
-        android:layout_width="@dimen/zero_depend"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:id="@+id/cbmain_list_fill"
-        android:focusable="false"/>
+        android:weightSum="6"
+        android:background="@color/colorOpacity50"
+        android:layout_marginBottom="@dimen/margin20dp"
+        android:id="@+id/list_fill_comp">
+
+        <TextView
+            android:layout_width="@dimen/zero_depend"
+            android:layout_height="match_parent"
+            android:id="@+id/tmain_list_fill"
+            android:layout_weight="5" />
+        <CheckBox
+            android:layout_width="@dimen/zero_depend"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:id="@+id/cbmain_list_fill"
+            android:focusable="false"/>
+    </LinearLayout>
 </LinearLayout>

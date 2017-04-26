@@ -1,5 +1,7 @@
 package com.example.aloid.android_current.fragments;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -54,8 +56,13 @@ public class FragmentDescription extends Fragment {
             @Override
             public void onClick(View v) {
                 if(v.getId()==R.id.fragment_description_share){
-                    Toast.makeText(getActivity(), "Note: " + position + "Coming Soon!",
+                    Toast.makeText(getActivity(), "Note: " + position + " Shared !",
                             Toast.LENGTH_SHORT).show();
+
+                    final String strDetails = editText.getText().toString();
+                    String tweetUrl = "https://twitter.com/intent/tweet?text=" + strDetails;
+                    Uri uri = Uri.parse(tweetUrl);
+                    startActivity(new Intent(Intent.ACTION_VIEW, uri));
                 }
             }
         });

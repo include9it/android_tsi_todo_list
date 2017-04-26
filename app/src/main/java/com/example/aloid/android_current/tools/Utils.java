@@ -1,10 +1,9 @@
-package com.example.aloid.android_current;
+package com.example.aloid.android_current.tools;
 
 
 
 
 import com.example.aloid.android_current.models.Penguins;
-
 import java.util.ArrayList;
 
 /**
@@ -34,11 +33,4 @@ public class Utils {
         return pengList;
     }
 
-    public void putJson(){
-
-    }
-
-    public void getJson(){
-
-    }
 }

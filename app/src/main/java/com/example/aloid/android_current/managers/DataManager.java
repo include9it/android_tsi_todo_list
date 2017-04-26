@@ -1,8 +1,9 @@
 package com.example.aloid.android_current.managers;
 
 
+
 import com.example.aloid.android_current.models.Penguins;
-import com.example.aloid.android_current.Utils;
+import com.example.aloid.android_current.tools.Utils;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,10 @@ public class DataManager {
         penguinData.add(new Penguins(name));
     }
 
+    public void setPenguinArray(ArrayList<Penguins>penguinData){
+        this.penguinData = penguinData;
+    }
+
     public void setCheckPenguin(int i,boolean key){
         penguinData.get(i).setCheck(key);
     }
@@ -69,4 +74,7 @@ public class DataManager {
         }
         penguinSize = penguinData.size();
     }
+
+
+
 }
